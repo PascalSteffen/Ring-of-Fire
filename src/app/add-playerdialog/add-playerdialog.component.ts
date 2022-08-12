@@ -13,6 +13,11 @@ export class AddPlayerdialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  /**
+   * function to close the pop-up.
+   * 
+   */
   onNoClick(): void {
     this.dialogRef.close();
   }

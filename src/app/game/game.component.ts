@@ -20,12 +20,20 @@ export class GameComponent implements OnInit {
   }
 
 
+  /**
+   * init a new Game on load.
+   * 
+   */
   newGame() {
     this.game = new Game();
-    console.log(this.game);
   }
 
 
+  /**
+   * pick the cards and display the animation.
+   * display the current user.
+   * 
+   */
   takeCard() {
     if (!this.pickCardAnimation) {
       this.currentCard = this.game.stack.pop();
@@ -40,9 +48,12 @@ export class GameComponent implements OnInit {
   }
 
 
+  /**
+   * open pop-up.
+   * 
+   */
   openDialog(): void {
     const dialogRef = this.dialog.open(AddPlayerdialogComponent);
-
     dialogRef.afterClosed().subscribe(name => {
       if(name && name.length > 0) {
         this.game.players.push(name);
