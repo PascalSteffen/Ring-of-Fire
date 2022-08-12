@@ -2,7 +2,7 @@
     height: 100vh;
     width: 100vw;
     max-width: 100%;
-    background-image: url('../../assets/img/board.jpg');
+    background-image: url('../../assets/img/background.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,13 +11,17 @@
     justify-content: center;
 }
 
+.card-cover-design {
+    border-radius: 10px;
+}
+
 
 .card-stack {
     position: relative;
 
     img {
         position: absolute;
-        width: 120px;
+        width: 160px;
     }
 }
 
@@ -36,7 +40,7 @@
 
 .pick-card {
     animation: pick-card-animation 1.5s ease-in-out;
-    transform: scale(1.25) translateX(140px) translateY(-180px) rotate(-10deg);
+    transform: scale(1) translateX(180px) translateY(-200px) rotate(-10deg);
 }
 
 
@@ -46,15 +50,15 @@
     }
 
     25% {
-        transform: scale(1.5);
+        transform: scale(1.25);
     }
 
     50% {
-        transform: scale(1.5);
+        transform: scale(1.25);
     }
 
     100% {
-        transform: scale(1.25) translateX(140px) translateY(-180px) rotate(-10deg);
+        transform: scale(1) translateX(180px) translateY(-200px) rotate(-10deg);
     }
 }
 
@@ -65,5 +69,5 @@
 .btn-add {
     position: absolute;
     right: 5%;
-    bottom: 5%;
+    top: 5%;
 }
