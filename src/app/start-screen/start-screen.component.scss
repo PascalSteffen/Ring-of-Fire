@@ -2,13 +2,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #404040;
     width: 100vw;
     height: 100vh;
     max-width: 100%;
 
+
     img {
+        width: 100vw;
         height: 100vh;
+        object-fit: cover;
     }
 }
 
@@ -28,6 +30,27 @@
 
         &:hover {
             filter: brightness(1.075);
+        }
+    }
+}
+
+.start-btn {
+    position: absolute;
+    top: 10%;
+
+    button {
+        padding: 16px 48px;
+        font-size: 20px;
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        border: 2px solid lightgoldenrodyellow;
+        box-shadow: transparent;
+        transition: all 225ms ease-in-out;
+
+        &:hover {
+            box-shadow: lightgoldenrodyellow 0px 4px 12px;
+            transition: all 225ms ease-in-out;
         }
     }
 }

@@ -28,7 +28,6 @@ export class GameComponent implements OnInit {
     this.game = new Game();
   }
 
-
   /**
    * pick the cards and display the animation.
    * display the current user.
@@ -55,7 +54,7 @@ export class GameComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(AddPlayerdialogComponent);
     dialogRef.afterClosed().subscribe(name => {
-      if(name && name.length > 0) {
+      if (name && name.length > 0) {
         this.game.players.push(name);
       }
     });
