@@ -10,6 +10,7 @@ import { AddPlayerdialogComponent } from '../add-playerdialog/add-playerdialog.c
 })
 export class GameComponent implements OnInit {
   pickCardAnimation = false;
+  lastCard = false;
   currentCard: string = '';
   game: Game;
   constructor(public dialog: MatDialog) { }
@@ -17,6 +18,7 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.newGame();
+    console.log(this.game.stack);
   }
 
 
@@ -38,11 +40,26 @@ export class GameComponent implements OnInit {
       this.currentCard = this.game.stack.pop();
       this.game.playedCard.push(this.currentCard);
       this.pickCardAnimation = true;
+      this.showlastCard();
       setTimeout(() => {
         this.pickCardAnimation = false;
         this.game.currentPlayer++;
         this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
       }, 1500);
+    }
+  }
+
+
+  /**
+   * delete one card from the gamefield
+   * when the stack <=5
+   */
+  showlastCard() {
+    if (this.game.stack.length <= 5) {
+      this.game.lastFiveCards.pop();
+      if (this.game.stack.length == 0) {
+        this.lastCard = true;
+      }
     }
   }
 
