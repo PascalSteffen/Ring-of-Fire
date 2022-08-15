@@ -102,6 +102,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Ring_Of_Fire:build:production",
+            "firebaseProject": "ring-of-fire-9abd3",
+            "firebaseHostingSite": "ring-of-fire-9abd3"
+          }
         }
       }
     }
