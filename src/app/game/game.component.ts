@@ -15,25 +15,25 @@ export class GameComponent implements OnInit {
   lastCard = false;
   currentCard: string = '';
   game: Game;
+  gameId: string;
   constructor(private route: ActivatedRoute, private firestore: AngularFirestore, public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
     this.newGame();
     this.route.params.subscribe((params) => {
-      console.log(params);
+      this.gameId = params['id'];
 
 
-      this.firestore.collection('games').valueChanges()
+      this.firestore.collection('games')
+        .doc(this.gameId)
+        .valueChanges()
+        .subscribe((game) => {
+          console.log(game);
 
-      .subscribe((game:any) => {
-        console.log(game);
-        this.game.currentPlayer = game.currentPlayer;
-        this.game.playedCard = game.playedCard;
-        this.game.players = game.players;
-        this.game.stack = game.stack;
-      });
-    })
+        });
+
+    });
 
   }
 
