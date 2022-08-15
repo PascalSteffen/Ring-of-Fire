@@ -1,14 +1,12 @@
 <div class="overscroll-container">
-    <app-player *ngFor="let player of game.players let i = index;" [ngStyle]="{'top.px': 100 + (i * 75)}"
+    <app-player (click)="deletePlayer(i)" *ngFor="let player of game.players let i = index;" [ngStyle]="{'top.px': 100 + (i * 75)}"
         [playerActive]="i == game.currentPlayer" [name]='player' class="player-position"></app-player>
 </div>
 
 <div class="overscroll-container-mobile">
-    <app-player *ngFor="let player of game.players let i = index;" [ngStyle]="{'right.px': 50 + (i * 150)}"
-        [playerActive]="i == game.currentPlayer" [name]='player' class="player-position"></app-player>
+    <app-player (click)="deletePlayer(i)" class="player-position-mobile" *ngFor="let player of game.players let i = index;"
+        [playerActive]="i == game.currentPlayer" [name]='player'></app-player>
 </div>
-
-
 
 <div class="game-container">
     <div class="card-stack">

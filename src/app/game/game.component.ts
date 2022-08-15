@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddPlayerdialogComponent } from '../add-playerdialog/add-playerdialog.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { EditPlayerComponent } from '../edit-player/edit-player.component';
 
 @Component({
   selector: 'app-game',
@@ -56,8 +57,8 @@ export class GameComponent implements OnInit {
    */
   saveGame() {
     this.firestore.collection('games')
-    .doc(this.gameId)
-    .update(this.game.toJSON())
+      .doc(this.gameId)
+      .update(this.game.toJSON())
   }
 
 
@@ -108,8 +109,29 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe(name => {
       if (name && name.length > 0) {
         this.game.players.push(name);
+        this.game.players.sort();
         this.saveGame();
       }
+    });
+  }
+
+
+  /**
+   * Delete player
+   * @param i - index
+   */
+  deletePlayer(i: number) {
+    const dialogRef = this.dialog.open(EditPlayerComponent);
+    dialogRef.afterClosed().subscribe(change => {
+      if (change && change.length > 0) {
+        this.game.players.splice(i, 1);
+        this.game.players.push(change);
+        this.game.players.sort();
+      } if (change == 'DELETE') {
+        this.game.players.splice(i, 1);
+        this.game.players.sort();
+      }
+      this.saveGame();
     });
   }
 

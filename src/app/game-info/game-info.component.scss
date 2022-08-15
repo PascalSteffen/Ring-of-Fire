@@ -1,7 +1,21 @@
 .info-card-container {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: calc(100%);
+    bottom: 2.5%;
+    left: 200px;
+    right: 200px;
+}
+
+
+@media(max-width: 803px) {
+    .info-card-container {
+        bottom: 0;
+        left: 0px;
+        right: 0px;
+    }
+}
+
+@media(max-width: 803px) {
+    .mat-card {
+        height: 140px;
+    }
 }
