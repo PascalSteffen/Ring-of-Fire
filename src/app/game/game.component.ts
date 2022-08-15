@@ -11,9 +11,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-  pickCardAnimation = false;
-  lastCard = false;
-  currentCard: string = '';
   game: Game;
   gameId: string;
   constructor(private route: ActivatedRoute, private firestore: AngularFirestore, public dialog: MatDialog) { }
@@ -28,9 +25,15 @@ export class GameComponent implements OnInit {
       this.firestore.collection('games')
         .doc(this.gameId)
         .valueChanges()
-        .subscribe((game) => {
-          console.log(game);
-
+        .subscribe((game: any) => {
+          this.game.currentPlayer = game.currentPlayer;
+          this.game.playedCard = game.playedCard;
+          this.game.players = game.players;
+          this.game.stack = game.stack;
+          this.game.lastFiveCards = game.lastFiveCards;
+          this.game.pickCardAnimation = game.pickCardAnimation;
+          this.game.lastCard = game.lastCard;
+          this.game.currentCard = game.currentCard;
         });
 
     });
@@ -44,8 +47,19 @@ export class GameComponent implements OnInit {
    */
   newGame() {
     this.game = new Game();
-    // this.firestore.collection('games').add(this.game.toJSON());
   }
+
+
+  /**
+   * update the Game to DB.
+   * 
+   */
+  saveGame() {
+    this.firestore.collection('games')
+    .doc(this.gameId)
+    .update(this.game.toJSON())
+  }
+
 
   /**
    * pick the cards and display the animation.
@@ -53,15 +67,17 @@ export class GameComponent implements OnInit {
    * 
    */
   takeCard() {
-    if (!this.pickCardAnimation && this.game.players.length > 1) {
-      this.currentCard = this.game.stack.pop();
-      this.game.playedCard.push(this.currentCard);
-      this.pickCardAnimation = true;
+    if (!this.game.pickCardAnimation && this.game.players.length > 1) {
+      this.game.currentCard = this.game.stack.pop();
+      this.game.playedCard.push(this.game.currentCard);
+      this.game.pickCardAnimation = true;
       this.showlastCard();
+      this.saveGame();
       setTimeout(() => {
-        this.pickCardAnimation = false;
+        this.game.pickCardAnimation = false;
         this.game.currentPlayer++;
         this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+        this.saveGame();
       }, 1500);
     }
   }
@@ -74,8 +90,10 @@ export class GameComponent implements OnInit {
   showlastCard() {
     if (this.game.stack.length <= 5) {
       this.game.lastFiveCards.pop();
+      this.saveGame();
       if (this.game.stack.length == 0) {
-        this.lastCard = true;
+        this.game.lastCard = true;
+        this.saveGame();
       }
     }
   }
@@ -90,9 +108,9 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe(name => {
       if (name && name.length > 0) {
         this.game.players.push(name);
+        this.saveGame();
       }
     });
   }
-
 
 }
