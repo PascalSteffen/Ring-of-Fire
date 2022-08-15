@@ -29,3 +29,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .d-none {
     display: none;
 }
+
+.start-btn {
+    position: absolute;
+    top: 10%;
+
+    button {
+        padding: 16px 48px;
+        font-size: 20px;
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        border: 2px solid lightgoldenrodyellow;
+        box-shadow: transparent;
+        transition: all 225ms ease-in-out;
+
+        &:hover {
+            box-shadow: lightgoldenrodyellow 0px 4px 12px;
+            transition: all 225ms ease-in-out;
+        }
+    }
+}

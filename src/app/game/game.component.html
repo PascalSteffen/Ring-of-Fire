@@ -25,4 +25,8 @@
     <button (click)="openDialog()" mat-fab color="primary" class="btn-add">
         <mat-icon>add</mat-icon>
     </button>
+
+    <div *ngIf="game.gameOver" class="start-btn">
+        <button (click)="restartGame()">New Game</button>
+    </div>
 </div>

@@ -3,7 +3,7 @@ import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { AddPlayerdialogComponent } from '../add-playerdialog/add-playerdialog.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EditPlayerComponent } from '../edit-player/edit-player.component';
 
 @Component({
@@ -14,7 +14,7 @@ import { EditPlayerComponent } from '../edit-player/edit-player.component';
 export class GameComponent implements OnInit {
   game: Game;
   gameId: string;
-  constructor(private route: ActivatedRoute, private firestore: AngularFirestore, public dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, private firestore: AngularFirestore, public dialog: MatDialog, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -51,6 +51,25 @@ export class GameComponent implements OnInit {
   }
 
 
+
+  /**
+   * restart the Game after gameOver
+   * 
+   */
+  restartGame() {
+    let game = new Game();
+    this.firestore
+      .collection('games')
+      .add(game.toJSON())
+      .then((gameInfo: any) => {
+        this.router.navigateByUrl('/game/' + gameInfo.id);
+      });
+      this.game.gameOver = false;
+      this.saveGame();
+  }
+  
+
+
   /**
    * update the Game to DB.
    * 
@@ -68,12 +87,20 @@ export class GameComponent implements OnInit {
    * 
    */
   takeCard() {
-    if (!this.game.pickCardAnimation && this.game.players.length > 1) {
+    if(this.game.stack.length == 1) {
+      setTimeout(() => {
+        this.game.gameOver = true;
+      }, 1500);
+      console.log(this.game.gameOver);
+      this.saveGame();
+    } if (!this.game.pickCardAnimation && this.game.players.length > 1) {
       this.game.currentCard = this.game.stack.pop();
       this.game.playedCard.push(this.game.currentCard);
       this.game.pickCardAnimation = true;
       this.showlastCard();
       this.saveGame();
+      console.log(this.game.gameOver);
+      console.log(this.game.stack.length);
       setTimeout(() => {
         this.game.pickCardAnimation = false;
         this.game.currentPlayer++;

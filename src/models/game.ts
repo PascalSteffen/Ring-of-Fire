@@ -2,6 +2,7 @@ export class Game {
     public pickCardAnimation = false;
     public lastCard = false;
     public currentCard: string = '';
+    public gameOver = false;
 
     public players: string[] = [];
     public stack: string[] = [];
@@ -30,9 +31,10 @@ export class Game {
             lastFiveCards: this.lastFiveCards,
             pickCardAnimation: this.pickCardAnimation,
             lastCard: this.lastCard,
-            currentCard: this.currentCard
+            currentCard: this.currentCard,
+            gameOver: this.gameOver
         }
-    } 
+    }
 
 }
 
