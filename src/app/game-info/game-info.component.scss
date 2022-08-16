@@ -5,6 +5,11 @@
     right: 200px;
 }
 
+mat-card{
+    background-image: url('../../assets/img/background.jpg');
+    color: white;
+    border: 1px solid white;
+  }
 
 @media(max-width: 803px) {
     .info-card-container {
@@ -12,10 +17,17 @@
         left: 0px;
         right: 0px;
     }
+
+    mat-card{
+        background-image: url('../../assets/img/background.jpg');
+        color: white;
+        border: none;
+        border-top: 1px solid white;
+      }
 }
 
 @media(max-width: 803px) {
     .mat-card {
-        height: 140px;
+        height: 190px;
     }
 }

@@ -5,6 +5,7 @@ import { AddPlayerdialogComponent } from '../add-playerdialog/add-playerdialog.c
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EditPlayerComponent } from '../edit-player/edit-player.component';
+import { LegacyComponent } from '../legacy/legacy.component';
 
 @Component({
   selector: 'app-game',
@@ -153,6 +154,14 @@ export class GameComponent implements OnInit {
         this.saveGame();
       }
     });
+  }
+
+  /**
+   * open pop-up.
+   * 
+   */
+  openLegacy(): void {
+    const dialogRef = this.dialog.open(LegacyComponent);
   }
 
 

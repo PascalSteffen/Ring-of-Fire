@@ -67,12 +67,15 @@
     right: 0;
 }
 
-.btn-add {
+.btn-container {
     position: absolute;
-    right: 5%;
+    right: 3%;
     bottom: 3.5%;
-}
 
+    .btn-add {
+        margin-right: 16px;
+    }
+}
 
 .overscroll-container {
     position: absolute;
@@ -161,6 +164,11 @@ app-player {
         100% {
             transform: scale(1) translateX(180px) translateY(0px) rotate(0deg);
         }
+    }
+
+    .btn-container {
+        right: 3%;
+        bottom: 1%;
     }
 }
 

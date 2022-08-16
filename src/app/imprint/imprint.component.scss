@@ -1,0 +1,57 @@
+.headline {
+    padding: 0px 148px;
+    padding-top: 64px;
+    
+    h1 {
+        color: white;
+        font-weight: bold;
+        font-size: 40px;
+    }
+
+}
+
+.imprint-container {
+    padding: 64px 148px;
+    transition: all 225ms ease-in-out;
+    color: white;
+
+    a {
+        color: white;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        word-break: break-word;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.5rem !important;
+    }
+}
+
+.background {
+    background-image: url(../../assets/img/background.jpg);
+    height: 100vh;
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .imprint-container {
+        padding: 64px 64px;
+    }
+
+    .headline {
+        padding: 0px 64px;
+        padding-top: 64px;
+        h1 {
+            font-size: 2rem;
+        }
+    }
+}

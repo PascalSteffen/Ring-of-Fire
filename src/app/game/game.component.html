@@ -22,9 +22,16 @@
 
     <app-game-info [card]="game.currentCard"></app-game-info>
 
-    <button (click)="openDialog()" mat-fab color="primary" class="btn-add">
-        <mat-icon>add</mat-icon>
-    </button>
+    <div class="btn-container">
+        <button (click)="openDialog()" mat-fab color="link" class="btn-add">
+            <mat-icon>add</mat-icon>
+        </button>
+    
+        <button (click)="openLegacy()" mat-fab color="link" class="btn-legacy">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+
 
     <div *ngIf="game.gameOver" class="start-btn">
         <button (click)="restartGame()">New Game</button>

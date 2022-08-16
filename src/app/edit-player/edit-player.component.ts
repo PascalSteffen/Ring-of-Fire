@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Game } from 'src/models/game';
 
 @Component({
   selector: 'app-edit-player',
@@ -8,7 +7,6 @@ import { Game } from 'src/models/game';
   styleUrls: ['./edit-player.component.scss']
 })
 export class EditPlayerComponent implements OnInit {
-  game: Game;
   name: string = '';
   constructor(public dialogRef: MatDialogRef<EditPlayerComponent>) { }
 

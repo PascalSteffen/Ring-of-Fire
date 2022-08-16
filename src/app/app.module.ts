@@ -24,6 +24,9 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
+import { LegacyComponent } from './legacy/legacy.component';
+import { ImprintComponent } from './imprint/imprint.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { EditPlayerComponent } from './edit-player/edit-player.component';
     PlayerComponent,
     AddPlayerdialogComponent,
     GameInfoComponent,
-    EditPlayerComponent
+    EditPlayerComponent,
+    LegacyComponent,
+    ImprintComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
