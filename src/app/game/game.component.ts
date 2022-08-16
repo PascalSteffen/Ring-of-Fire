@@ -51,7 +51,6 @@ export class GameComponent implements OnInit {
   }
 
 
-
   /**
    * restart the Game after gameOver
    * 
@@ -64,10 +63,9 @@ export class GameComponent implements OnInit {
       .then((gameInfo: any) => {
         this.router.navigateByUrl('/game/' + gameInfo.id);
       });
-      this.game.gameOver = false;
-      this.saveGame();
+    this.game.gameOver = false;
+    this.saveGame();
   }
-  
 
 
   /**
@@ -87,27 +85,42 @@ export class GameComponent implements OnInit {
    * 
    */
   takeCard() {
-    if(this.game.stack.length == 1) {
+    if (this.game.stack.length == 1) {
       setTimeout(() => {
         this.game.gameOver = true;
       }, 1500);
-      console.log(this.game.gameOver);
       this.saveGame();
     } if (!this.game.pickCardAnimation && this.game.players.length > 1) {
-      this.game.currentCard = this.game.stack.pop();
-      this.game.playedCard.push(this.game.currentCard);
-      this.game.pickCardAnimation = true;
+      this.nextCard();
       this.showlastCard();
       this.saveGame();
-      console.log(this.game.gameOver);
-      console.log(this.game.stack.length);
       setTimeout(() => {
-        this.game.pickCardAnimation = false;
-        this.game.currentPlayer++;
-        this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
-        this.saveGame();
+        this.showCurrentPlayer();
       }, 1500);
     }
+  }
+
+
+  /**
+   * get next card and splice the card from the stack.
+   * 
+   */
+  nextCard() {
+    this.game.currentCard = this.game.stack.pop();
+    this.game.playedCard.push(this.game.currentCard);
+    this.game.pickCardAnimation = true;
+  }
+
+
+  /**
+   * show the current player with an hightlight on the field.
+   * 
+   */
+  showCurrentPlayer() {
+    this.game.pickCardAnimation = false;
+    this.game.currentPlayer++;
+    this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+    this.saveGame();
   }
 
 
@@ -154,12 +167,11 @@ export class GameComponent implements OnInit {
         this.game.players.splice(i, 1);
         this.game.players.push(change);
         this.game.players.sort();
-      } if (change == 'DELETE') {
+      } else {
         this.game.players.splice(i, 1);
         this.game.players.sort();
       }
       this.saveGame();
     });
   }
-
 }

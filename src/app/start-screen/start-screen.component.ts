@@ -16,6 +16,10 @@ export class StartScreenComponent implements OnInit {
   }
 
   
+  /**
+   * create an New Game.
+   * 
+   */
   newGame() {
     let game = new Game();
     this.firestore
@@ -27,5 +31,4 @@ export class StartScreenComponent implements OnInit {
         this.router.navigateByUrl('/game/' + gameInfo.id);
       });
   }
-
 }

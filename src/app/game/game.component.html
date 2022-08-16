@@ -3,7 +3,7 @@
         [playerActive]="i == game.currentPlayer" [name]='player' class="player-position"></app-player>
 </div>
 
-<div class="overscroll-container-mobile">
+<div *ngIf="!game.gameOver" class="overscroll-container-mobile">
     <app-player (click)="deletePlayer(i)" class="player-position-mobile" *ngFor="let player of game.players let i = index;"
         [playerActive]="i == game.currentPlayer" [name]='player'></app-player>
 </div>

@@ -8,10 +8,11 @@ export class Game {
     public stack: string[] = [];
     public playedCard: string[] = [];
     public currentPlayer: number = 0;
-    public lastFiveCards = [1,2,3,4,5];
+    public lastFiveCards = [1, 2, 3, 4, 5];
+
 
     constructor() {
-        for (let i = 1; i < 14; i++) {
+        for (let i = 1; i < 3; i++) {
             this.stack.push('spade_' + i);
             this.stack.push('hearts_' + i);
             this.stack.push('clubs_' + i);
@@ -21,7 +22,7 @@ export class Game {
         shuffle(this.stack)
     }
 
-    
+
     public toJSON() {
         return {
             players: this.players,
