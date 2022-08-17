@@ -73,7 +73,9 @@ export class GameComponent implements OnInit {
    * 
    */
   saveGame() {
-    this.firestore.collection('games').doc(this.gameId).update(this.game.toJSON())
+    this.firestore.collection('games')
+      .doc(this.gameId)
+      .update(this.game.toJSON());
   }
 
 
@@ -173,11 +175,13 @@ export class GameComponent implements OnInit {
         this.game.players.splice(i, 1);
         this.game.players.push(change);
         this.game.players.sort();
-      } else {
+        this.saveGame();
+      }
+      if (change == 'DELETE') {
         this.game.players.splice(i, 1);
         this.game.players.sort();
+        this.saveGame();
       }
-      this.saveGame();
     });
   }
 }
