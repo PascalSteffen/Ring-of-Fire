@@ -23,7 +23,6 @@ export class GameComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.gameId = params['id'];
 
-
       this.firestore.collection('games')
         .doc(this.gameId)
         .valueChanges()
@@ -74,9 +73,7 @@ export class GameComponent implements OnInit {
    * 
    */
   saveGame() {
-    this.firestore.collection('games')
-      .doc(this.gameId)
-      .update(this.game.toJSON())
+    this.firestore.collection('games').doc(this.gameId).update(this.game.toJSON())
   }
 
 
