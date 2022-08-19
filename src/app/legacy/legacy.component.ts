@@ -17,7 +17,7 @@ export class LegacyComponent implements OnInit {
    * copy to clipboard.
    * @param val
    */
-  copyMessage(val: string){
+  copyMessage(val: string) {
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
