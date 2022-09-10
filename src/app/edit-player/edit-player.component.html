@@ -1,13 +1,13 @@
 <h1 mat-dialog-title>Edit player</h1>
 <div mat-dialog-content>
-    <p>Please enter the new name for the Player</p>
-    <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput [(ngModel)]="name">
-    </mat-form-field>
+  <p>Please enter the new name for the Player</p>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="name">
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="this.dialogRef.close();">Close</button>
-    <button mat-button [disabled]='name.length == 0' [mat-dialog-close]="name" cdkFocusInitial>Change</button>
-    <button mat-button [mat-dialog-close]="'DELETE'" color="warn" cdkFocusInitial>Delete player</button>
+  <button mat-button (click)="this.dialogRef.close();">Close</button>
+  <button mat-button [disabled]='name.length == 0' [mat-dialog-close]="name" cdkFocusInitial>Change</button>
+  <button mat-button [mat-dialog-close]="'DELETE'" color="warn" cdkFocusInitial>Delete player</button>
 </div>

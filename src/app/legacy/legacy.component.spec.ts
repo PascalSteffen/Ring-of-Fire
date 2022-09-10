@@ -8,9 +8,9 @@ describe('LegacyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LegacyComponent ]
+      declarations: [LegacyComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LegacyComponent);
     component = fixture.componentInstance;

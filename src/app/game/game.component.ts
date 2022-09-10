@@ -44,7 +44,7 @@ export class GameComponent implements OnInit {
 
   /**
    * init a new Game on load.
-   * 
+   *
    */
   newGame() {
     this.game = new Game();
@@ -53,7 +53,7 @@ export class GameComponent implements OnInit {
 
   /**
    * restart the Game after gameOver
-   * 
+   *
    */
   restartGame() {
     let game = new Game();
@@ -70,7 +70,7 @@ export class GameComponent implements OnInit {
 
   /**
    * update the Game to DB.
-   * 
+   *
    */
   saveGame() {
     this.firestore.collection('games')
@@ -82,7 +82,7 @@ export class GameComponent implements OnInit {
   /**
    * pick the cards and display the animation.
    * display the current user.
-   * 
+   *
    */
   takeCard() {
     if (this.game.stack.length == 1) {
@@ -103,7 +103,7 @@ export class GameComponent implements OnInit {
 
   /**
    * get next card and splice the card from the stack.
-   * 
+   *
    */
   nextCard() {
     this.game.currentCard = this.game.stack.pop();
@@ -114,7 +114,7 @@ export class GameComponent implements OnInit {
 
   /**
    * show the current player with an hightlight on the field.
-   * 
+   *
    */
   showCurrentPlayer() {
     this.game.pickCardAnimation = false;
@@ -142,7 +142,7 @@ export class GameComponent implements OnInit {
 
   /**
    * open pop-up.
-   * 
+   *
    */
   openDialog(): void {
     const dialogRef = this.dialog.open(AddPlayerdialogComponent);
@@ -157,7 +157,7 @@ export class GameComponent implements OnInit {
 
   /**
    * open pop-up.
-   * 
+   *
    */
   openLegacy(): void {
     const dialogRef = this.dialog.open(LegacyComponent);

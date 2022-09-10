@@ -7,9 +7,9 @@ import { StartScreenComponent } from './start-screen/start-screen.component';
 
 const routes: Routes = [
   { path: '', component: StartScreenComponent },
-  { path: 'game/:id' , component: GameComponent },
-  { path: 'imprint' , component: ImprintComponent },
-  { path: 'privacy' , component: PrivacyComponent },
+  { path: 'game/:id', component: GameComponent },
+  { path: 'imprint', component: ImprintComponent },
+  { path: 'privacy', component: PrivacyComponent },
 ];
 
 @NgModule({

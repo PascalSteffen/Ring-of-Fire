@@ -36,7 +36,7 @@ export class GameInfoComponent implements OnInit, OnChanges {
   /**
    * split the img-names in number and in a string.
    * display the current title and current description for the card between 1 - 13.
-   * 
+   *
    */
   ngOnChanges(): void {
     if (this.card) {
