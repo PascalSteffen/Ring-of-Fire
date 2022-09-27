@@ -96,7 +96,7 @@ export class GameComponent implements OnInit {
       this.saveGame();
       setTimeout(() => {
         this.showCurrentPlayer();
-      }, 1500);
+      }, 1000);
     }
   }
 
@@ -154,6 +154,7 @@ export class GameComponent implements OnInit {
       }
     });
   }
+
 
   /**
    * open pop-up.

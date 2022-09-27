@@ -9,10 +9,12 @@
 </div>
 
 <div mat-dialog-actions class="underline-container">
-  <div class="legacy-container">
-    <a (click)="this.dialogRef.close();" routerLink="/imprint">Imprint</a>
-    <a (click)="this.dialogRef.close();" routerLink="/privacy" target="_blank">Privacy</a>
-    <a href="https://www.freepik.com/author/denamorado" target="_blank">Credits (Background)</a>
+  <div class="legacy-container row">
+    <button class="col-md-auto" mat-button (click)="this.dialogRef.close();" routerLink="/imprint">Imprint</button>
+    <button class="col-md-auto" mat-button (click)="this.dialogRef.close();" routerLink="/privacy">Privacy</button>
+    <a class="col-md-auto" href="https://www.freepik.com/author/denamorado" target="_blank"> <button mat-button>Credits
+        (Background)</button></a>
+
+    <button class="col-md-auto" mat-button (click)="this.dialogRef.close();">Close</button>
   </div>
-  <button mat-button (click)="this.dialogRef.close();">Close</button>
 </div>

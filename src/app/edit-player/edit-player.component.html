@@ -6,8 +6,9 @@
     <input matInput [(ngModel)]="name">
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="this.dialogRef.close();">Close</button>
-  <button mat-button [disabled]='name.length == 0' [mat-dialog-close]="name" cdkFocusInitial>Change</button>
-  <button mat-button [mat-dialog-close]="'DELETE'" color="warn" cdkFocusInitial>Delete player</button>
+<div class="row" mat-dialog-actions>
+  <button class="col" mat-button (click)="this.dialogRef.close();">Close</button>
+  <button class="col" mat-button [disabled]='name.length == 0' [mat-dialog-close]="name" cdkFocusInitial>Change</button>
+  <button class="col-md-auto" mat-button [mat-dialog-close]="'DELETE'" color="warn" cdkFocusInitial>Delete
+    player</button>
 </div>

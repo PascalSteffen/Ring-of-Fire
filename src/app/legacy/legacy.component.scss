@@ -5,16 +5,7 @@
 
   a {
     text-decoration: none;
-    margin-right: 16px;
-    margin-left: 16px;
     color: black;
-    border-bottom: 1px solid transparent;
-    transition: all 225ms ease-in-out;
-
-    &:hover {
-      border-bottom: 1px solid #414448;
-      transition: all 225ms ease-in-out;
-    }
   }
 }
 
@@ -28,11 +19,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   a {
     text-decoration: none;
     margin-right: 16px;
     color: black;
     font-size: 20px;
+  }
+}
+
+@media(max-width: 767px) {
+
+  .legacy-container,
+  h1 {
+    text-align: center;
+  }
+
+  button {
+    margin: 0 !important;
   }
 }

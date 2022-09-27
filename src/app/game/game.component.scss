@@ -2,7 +2,7 @@
   height: 100vh;
   width: 100vw;
   max-width: 100%;
-  background-image: url('../../assets/img/background.jpg');
+  background-image: url('../../assets/img/background\ .webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -39,7 +39,7 @@
 
 
 .pick-card {
-  animation: pick-card-animation 1.5s ease-in-out;
+  animation: pick-card-animation 1.0s ease-in-out;
   transform: scale(1) translateX(180px) translateY(-200px) rotate(-10deg);
 }
 
@@ -144,7 +144,7 @@ app-player {
   }
 
   .pick-card {
-    animation: pick-card-animation 1.5s ease-in-out;
+    animation: pick-card-animation 1.0s ease-in-out;
     transform: scale(1) translateX(180px) translateY(0px) rotate(0deg);
   }
 
@@ -183,7 +183,7 @@ app-player {
   }
 
   .pick-card {
-    animation: pick-card-animation 1.5s ease-in-out;
+    animation: pick-card-animation 1.0s ease-in-out;
     transform: scale(1) translateX(160px) translateY(0px) rotate(0deg);
   }
 
@@ -217,7 +217,7 @@ app-player {
   }
 
   .pick-card {
-    animation: pick-card-animation 1.5s ease-in-out;
+    animation: pick-card-animation 1.0s ease-in-out;
     transform: scale(1) translateX(140px) translateY(0px) rotate(0deg);
   }
 

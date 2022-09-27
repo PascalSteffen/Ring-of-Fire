@@ -9,16 +9,15 @@ import { Game } from 'src/models/game';
   styleUrls: ['./start-screen.component.scss']
 })
 export class StartScreenComponent implements OnInit {
-
   constructor(private firestore: AngularFirestore, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  
+
   /**
    * create an New Game.
-   * 
+   *
    */
   newGame() {
     let game = new Game();
@@ -26,8 +25,6 @@ export class StartScreenComponent implements OnInit {
       .collection('games')
       .add(game.toJSON())
       .then((gameInfo: any) => {
-        console.log(gameInfo);
-
         this.router.navigateByUrl('/game/' + gameInfo.id);
       });
   }
