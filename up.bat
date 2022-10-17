@@ -1,6 +1,5 @@
 git add .
 git commit -m "%*"
 git push
-ng build
-
-.\ftp-push
+git config git-ftp.syncroot dist/ring-of-fire/
+git ftp push
