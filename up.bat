@@ -2,4 +2,5 @@ git add .
 git commit -m "%*"
 git push
 ng build
-.\ftp-push.bat
+
+.\ftp-push
