@@ -30,5 +30,4 @@ export class LegacyComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(selBox);
   }
-
 }
